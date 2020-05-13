@@ -1,0 +1,31 @@
+1. Seleziona tutti gli ospiti che sono stati identificati con la carta di identità
+
+SELECT YEAR(`date_of_birth`) AS `anno di nascita`, COUNT(`id`) AS `numero nascite`
+FROM `ospiti`
+GROUP BY `anno di nascita`
+
+2. Somma i prezzi dei pagamenti raggruppandoli per status
+
+SELECT SUM(`price`), `status`
+FROM `pagamenti`
+GROUP BY `status`
+
+3. Conta quante volte è stata prenotata ogni stanza
+
+SELECT COUNT(`id`), `stanza_id`
+FROM `prenotazioni`
+GROUP BY `stanza_id`
+
+4. Fai una analisi per vedere se ci sono ore in cui le prenotazioni sono più frequenti
+
+SELECT HOUR(`created_at`) AS `ora prenotazione`, COUNT(`id`) AS `numero prenotazioni`
+FROM `prenotazioni`
+GROUP BY `ora prenotazione`
+ORDER BY `numero prenotazioni` DESC
+
+5. Quante prenotazioni ha fatto l’ospite che ha fatto più prenotazioni?
+
+SELECT `ospite_id` AS `ospite`, COUNT(`id`) AS `numero prenotazioni`
+FROM `prenotazioni_has_ospiti`
+GROUP BY `ospite`
+ORDER BY `numero prenotazioni` DESC
