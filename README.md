@@ -16,7 +16,7 @@ _Seleziona tutti gli ospiti che hanno più di 20 anni (al momento dell’esecuzi
 
 ```sql
 SELECT `name`,`lastname`,`date_of_birth` FROM `ospiti`
-WHERE `date_of_birth` < '2000'
+WHERE `date_of_birth` < '2000-05'
 ```
 ___
 **_Seleziona tutti gli ospiti il cui nome inizia con la D_**
@@ -29,7 +29,7 @@ WHERE `name` LIKE 'D%'
 #### Calcola il totale degli ordini accepted
 
 ```sql
-SELECT SUM(`price`) FROM `pagamenti`
+SELECT COUNT(`id`) as `numero ordini accepted` FROM `pagamenti`
 WHERE `status` = 'accepted'
 ```
 
@@ -39,6 +39,10 @@ WHERE `status` = 'accepted'
 SELECT `price` FROM `pagamenti`
 ORDER BY `price` DESC
 LIMIT 1
+```
+
+```sql
+SELECT MAX(`price`) FROM `pagamenti`
 ```
 
 7. **Seleziona gli ospiti riconosciuti con patente e nati nel 1975**
@@ -52,5 +56,5 @@ AND `date_of_birth` LIKE '1975%'
 ## Quanti posti letto ha l’hotel in totale?
 
 ```sql
-SELECT SUM(`beds`) FROM `stanze`
+SELECT SUM(`beds`) as `numero letti totale` FROM `stanze`
 ```
