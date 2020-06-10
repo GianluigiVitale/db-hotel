@@ -1,5 +1,5 @@
 # Db-hotel
-Exercise about SQL using a database of a hotel.
+Exercise about SQL using the database of a hotel.
 
 ### Database:
 ![Preview](img/preview.jpg "Preview")
